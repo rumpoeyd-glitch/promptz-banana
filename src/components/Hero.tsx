@@ -1,3 +1,5 @@
+import React from "react";
+
 const Hero = () => {
   return (
     <section className="container py-20 md:py-28">
