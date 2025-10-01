@@ -27,7 +27,7 @@ const PromptDetail = () => {
   const copyPrompt = () => {
     if (prompt) {
       navigator.clipboard.writeText(prompt.prompt_text);
-      toast.success("Prompt copied to clipboard!");
+      toast.success("คัดลอกพรอมต์แล้ว!");
     }
   };
 
@@ -36,7 +36,7 @@ const PromptDetail = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="container py-20 text-center">
-          <p className="text-muted-foreground">Loading...</p>
+          <p className="text-muted-foreground">กำลังโหลด...</p>
         </div>
       </div>
     );
@@ -47,9 +47,9 @@ const PromptDetail = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="container py-20 text-center">
-          <h2 className="text-2xl font-bold mb-4">Prompt not found</h2>
+          <h2 className="text-2xl font-bold mb-4">ไม่พบพรอมต์</h2>
           <Link to="/">
-            <Button variant="outline">Back to Gallery</Button>
+            <Button variant="outline">กลับไปแกลเลอรี</Button>
           </Link>
         </div>
       </div>
@@ -64,7 +64,7 @@ const PromptDetail = () => {
         <Link to="/">
           <Button variant="ghost" className="mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Gallery
+            กลับไปแกลเลอรี
           </Button>
         </Link>
 
@@ -89,15 +89,15 @@ const PromptDetail = () => {
             <div className="flex items-center gap-4 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Heart className="h-5 w-5" />
-                <span>{prompt.likes_count} likes</span>
+                <span>{prompt.likes_count} ไลค์</span>
               </div>
               <span>•</span>
-              <span>{new Date(prompt.created_at).toLocaleDateString()}</span>
+              <span>{new Date(prompt.created_at).toLocaleDateString('th-TH')}</span>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold">Prompt</h2>
+                <h2 className="text-xl font-semibold">พรอมต์</h2>
                 <Button
                   variant="outline"
                   size="sm"
@@ -105,7 +105,7 @@ const PromptDetail = () => {
                   className="gap-2"
                 >
                   <Copy className="h-4 w-4" />
-                  Copy
+                  คัดลอก
                 </Button>
               </div>
               

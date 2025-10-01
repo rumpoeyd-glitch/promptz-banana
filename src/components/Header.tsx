@@ -8,27 +8,27 @@ const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl">
           <span>🍌</span>
-          <span>BANANA PROMPTS</span>
+          <span>BANANA Promptz</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Gallery
+            แกลเลอรี
           </Link>
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Explore
+            สำรวจ
           </Link>
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Collections
+            คอลเล็กชัน
           </Link>
           <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-            My prompts
+            พรอมต์ของฉัน
           </Link>
         </nav>
 
         <Link to="/submit">
           <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium">
-            Share a prompt
+            แชร์พรอมต์
           </Button>
         </Link>
       </div>

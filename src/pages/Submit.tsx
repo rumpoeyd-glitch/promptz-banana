@@ -32,11 +32,11 @@ const Submit = () => {
 
       if (error) throw error;
 
-      toast.success("Prompt shared successfully!");
+      toast.success("แชร์พรอมต์สำเร็จแล้ว!");
       navigate("/");
     } catch (error) {
       console.error("Error submitting prompt:", error);
-      toast.error("Failed to share prompt");
+      toast.error("ไม่สามารถแชร์พรอมต์ได้");
     } finally {
       setIsSubmitting(false);
     }
@@ -48,20 +48,20 @@ const Submit = () => {
       
       <main className="container max-w-2xl py-16">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">Share Your Prompt</h1>
+          <h1 className="text-4xl font-bold mb-4">แชร์พรอมต์ของคุณ</h1>
           <p className="text-lg text-muted-foreground">
-            Upload your AI-generated image and share the prompt that created it
-            with the community.
+            อัปโหลดภาพ AI ของคุณและแชร์พรอมต์ที่สร้างมันขึ้นมา
+            กับชุมชน
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="title">Title *</Label>
+            <Label htmlFor="title">ชื่อเรื่อง *</Label>
             <Input
               id="title"
               required
-              placeholder="Give your creation a catchy title"
+              placeholder="ตั้งชื่อที่น่าสนใจให้กับผลงานของคุณ"
               value={formData.title}
               onChange={(e) =>
                 setFormData({ ...formData, title: e.target.value })
@@ -70,7 +70,7 @@ const Submit = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="imageUrl">Image URL *</Label>
+            <Label htmlFor="imageUrl">URL รูปภาพ *</Label>
             <Input
               id="imageUrl"
               type="url"
@@ -82,17 +82,17 @@ const Submit = () => {
               }
             />
             <p className="text-sm text-muted-foreground">
-              Upload your image to a service like Imgur or use a direct image URL
+              อัปโหลดรูปภาพของคุณไปยังบริการเช่น Imgur หรือใช้ URL รูปภาพโดยตรง
             </p>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="prompt">Prompt *</Label>
+            <Label htmlFor="prompt">พรอมต์ *</Label>
             <Textarea
               id="prompt"
               required
               rows={6}
-              placeholder="Share the exact prompt you used to generate this image..."
+              placeholder="แชร์พรอมต์ที่แท้จริงที่คุณใช้สร้างภาพนี้..."
               value={formData.prompt}
               onChange={(e) =>
                 setFormData({ ...formData, prompt: e.target.value })
@@ -101,10 +101,10 @@ const Submit = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="category">Category (Optional)</Label>
+            <Label htmlFor="category">หมวดหมู่ (ไม่บังคับ)</Label>
             <Input
               id="category"
-              placeholder="e.g., Studio Fashion, Landscape, Portrait"
+              placeholder="เช่น แฟชั่นสตูดิโอ ภูมิทัศน์ บุคคล"
               value={formData.category}
               onChange={(e) =>
                 setFormData({ ...formData, category: e.target.value })
@@ -117,7 +117,7 @@ const Submit = () => {
             disabled={isSubmitting}
             className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium"
           >
-            {isSubmitting ? "Sharing..." : "Share Prompt"}
+            {isSubmitting ? "กำลังแชร์..." : "แชร์พรอมต์"}
           </Button>
         </form>
       </main>

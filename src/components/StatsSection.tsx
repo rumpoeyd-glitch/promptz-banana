@@ -32,17 +32,17 @@ const StatsSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="rounded-xl bg-card border border-border p-8 shadow-sm transition-all hover:shadow-md">
           <div className="text-4xl font-bold mb-2">{stats?.promptsThisWeek || 0}+</div>
-          <div className="text-sm text-muted-foreground">Prompts shared this week</div>
+          <div className="text-sm text-muted-foreground">พรอมต์ที่แชร์ในสัปดาห์นี้</div>
         </div>
         
         <div className="rounded-xl bg-card border border-border p-8 shadow-sm transition-all hover:shadow-md">
           <div className="text-4xl font-bold mb-2">{stats?.creators || 0}+</div>
-          <div className="text-sm text-muted-foreground">Creators contributing</div>
+          <div className="text-sm text-muted-foreground">ผู้สร้างสรรค์ที่เข้าร่วม</div>
         </div>
         
         <div className="rounded-xl bg-card border border-border p-8 shadow-sm transition-all hover:shadow-md">
           <div className="text-4xl font-bold mb-2">{stats?.totalLikes || 0}+</div>
-          <div className="text-sm text-muted-foreground">Total likes given</div>
+          <div className="text-sm text-muted-foreground">ยอดไลค์ทั้งหมด</div>
         </div>
       </div>
     </section>

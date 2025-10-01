@@ -58,12 +58,12 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, onLikeUpdate }:
 
         setIsLiked(true);
         setLikes(likes + 1);
-        toast.success("Liked!");
+        toast.success("ถูกใจแล้ว!");
       }
       onLikeUpdate();
     } catch (error) {
       console.error("Error toggling like:", error);
-      toast.error("Failed to update like");
+      toast.error("ไม่สามารถอัปเดตไลค์ได้");
     } finally {
       setIsLiking(false);
     }

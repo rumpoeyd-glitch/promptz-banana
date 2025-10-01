@@ -21,8 +21,8 @@ const GalleryGrid = () => {
     return (
       <section className="container py-20">
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">No prompts yet</h2>
-          <p className="text-muted-foreground">Be the first to share your AI creations!</p>
+          <h2 className="text-2xl font-bold mb-4">ยังไม่มีพรอมต์</h2>
+          <p className="text-muted-foreground">เป็นคนแรกที่แชร์ผลงาน AI ของคุณ!</p>
         </div>
       </section>
     );
@@ -32,11 +32,11 @@ const GalleryGrid = () => {
     <section className="container py-12">
       <div className="mb-8">
         <h2 className="text-3xl font-bold mb-2">
-          See what the community is creating and loving right now.
+          ดูสิ่งที่ชุมชนกำลังสร้างสรรค์และชื่นชอบในตอนนี้
         </h2>
         <p className="text-muted-foreground">
-          Every image comes with the exact prompt that created it. Skip the guesswork
-          and learn directly from pieces that caught the community's attention.
+          ทุกภาพมาพร้อมกับพรอมต์ที่แท้จริงที่สร้างมันขึ้นมา ข้ามการเดาเอา
+          และเรียนรู้โดยตรงจากผลงานที่ดึงดูดความสนใจของชุมชน
         </p>
       </div>
       
