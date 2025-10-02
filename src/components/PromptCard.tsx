@@ -71,18 +71,18 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, onLikeUpdate }:
 
   return (
     <Link to={`/prompt/${id}`}>
-      <div className="group relative overflow-hidden rounded-xl bg-card border border-border transition-all hover:shadow-xl hover:-translate-y-1">
+      <div className="group relative overflow-hidden rounded-lg bg-card border transition-all hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/40">
         <div className="relative aspect-[4/5] overflow-hidden">
           <img
             src={imageUrl}
             alt={title}
-            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           
           {category && (
-            <div className="absolute top-4 left-4">
-              <span className="inline-flex items-center rounded-full bg-accent/90 backdrop-blur-sm px-4 py-1.5 text-xs font-medium text-accent-foreground uppercase tracking-wide">
+            <div className="absolute top-3 left-3">
+              <span className="inline-flex items-center rounded-full bg-primary/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-primary-foreground">
                 {category}
               </span>
             </div>
@@ -91,18 +91,18 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, onLikeUpdate }:
           <button
             onClick={handleLike}
             disabled={isLiking}
-            className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5 text-sm font-medium transition-all hover:bg-white disabled:opacity-50"
+            className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-sm px-3 py-1.5 text-sm font-medium transition-all hover:bg-white hover:scale-105 disabled:opacity-50"
           >
             <Heart
               className={`h-4 w-4 transition-colors ${
                 isLiked ? "fill-red-500 text-red-500" : "text-foreground"
               }`}
             />
-            <span>{likes}</span>
+            <span className="text-foreground">{likes}</span>
           </button>
           
-          <div className="absolute bottom-4 left-4 right-4">
-            <h3 className="text-lg font-semibold text-white line-clamp-2">
+          <div className="absolute bottom-3 left-3 right-3">
+            <h3 className="text-base font-semibold text-white line-clamp-2">
               {title}
             </h3>
           </div>

@@ -30,18 +30,18 @@ const StatsSection = () => {
   return (
     <section className="container py-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="rounded-lg bg-card border p-6 hover:border-primary/50 transition-colors">
-          <div className="text-3xl font-semibold mb-1">{stats?.promptsThisWeek || 0}+</div>
+        <div className="rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 p-6 hover:border-primary/40 transition-all hover:shadow-lg hover:shadow-primary/10">
+          <div className="text-3xl font-semibold mb-1 text-primary">{stats?.promptsThisWeek || 0}+</div>
           <div className="text-sm text-muted-foreground font-light">พรอมต์ที่แชร์ในสัปดาห์นี้</div>
         </div>
         
-        <div className="rounded-lg bg-card border p-6 hover:border-primary/50 transition-colors">
-          <div className="text-3xl font-semibold mb-1">{stats?.creators || 0}+</div>
+        <div className="rounded-lg bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 p-6 hover:border-accent/40 transition-all hover:shadow-lg hover:shadow-accent/10">
+          <div className="text-3xl font-semibold mb-1 text-accent">{stats?.creators || 0}+</div>
           <div className="text-sm text-muted-foreground font-light">ผู้สร้างสรรค์ที่เข้าร่วม</div>
         </div>
         
-        <div className="rounded-lg bg-card border p-6 hover:border-primary/50 transition-colors">
-          <div className="text-3xl font-semibold mb-1">{stats?.totalLikes || 0}+</div>
+        <div className="rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 p-6 hover:border-accent/40 transition-all hover:shadow-lg hover:shadow-primary/10">
+          <div className="text-3xl font-semibold mb-1 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{stats?.totalLikes || 0}+</div>
           <div className="text-sm text-muted-foreground font-light">ยอดไลค์ทั้งหมด</div>
         </div>
       </div>
