@@ -2,24 +2,19 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="container py-20 md:py-28">
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="mb-6 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-          สตูดิโอและแกลเลอรีพรอมต์ชุมชน
-        </p>
-        
-        <h1 className="mb-8 text-4xl md:text-6xl font-bold tracking-tight">
-          แบ่งปัน{" "}
-          <span className="bg-accent text-accent-foreground px-3 py-1 rounded-lg">
-            พรอมต์
-          </span>{" "}
-          เบื้องหลังผลงานศิลปะ ค้นพบภาพ AI ที่กำลังมาแรงและสร้างแรงบันดาลใจให้คุณ
+    <section className="container py-12 md:py-16">
+      <div className="mx-auto max-w-4xl text-center space-y-6">
+        <h1 className="text-4xl md:text-5xl font-semibold">
+          BANANA Promptz
         </h1>
         
-        <p className="mx-auto max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          BANANA Promptz คือแกลเลอรีเปิดที่ศิลปิน AI แบ่งปันความลับของพวกเขา
-          และแฟนๆ ที่อยากรู้สามารถค้นพบสิ่งที่เป็นไปได้ เรียกดูผลงานยอดนิยม
-          คัดลอกพรอมต์ที่แท้จริง และติดตามเทรนด์ที่กำลังสร้างศิลปะสร้างสรรค์
+        <p className="text-lg md:text-xl text-muted-foreground font-light">
+          แบ่งปันและค้นพบพรอมต์ AI ที่ดีที่สุด
+        </p>
+        
+        <p className="mx-auto max-w-2xl text-base text-muted-foreground font-light">
+          แกลเลอรีพรอมต์ชุมชนสำหรับการแชร์และค้นหาพรอมต์ AI คุณภาพสูง
+          เรียกดูผลงานยอดนิยม คัดลอกพรอมต์ และสร้างสรรค์ผลงานของคุณเอง
         </p>
       </div>
     </section>
