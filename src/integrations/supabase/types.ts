@@ -44,6 +44,7 @@ export type Database = {
         Row: {
           category: string | null
           created_at: string
+          creator_name: string | null
           id: string
           image_url: string
           likes_count: number
@@ -54,6 +55,7 @@ export type Database = {
         Insert: {
           category?: string | null
           created_at?: string
+          creator_name?: string | null
           id?: string
           image_url: string
           likes_count?: number
@@ -64,6 +66,7 @@ export type Database = {
         Update: {
           category?: string | null
           created_at?: string
+          creator_name?: string | null
           id?: string
           image_url?: string
           likes_count?: number
