@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Heart } from "lucide-react";
+import { Heart, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -10,10 +10,12 @@ interface PromptCardProps {
   imageUrl: string;
   category?: string;
   likesCount: number;
+  creatorName?: string;
+  promptText: string;
   onLikeUpdate: () => void;
 }
 
-const PromptCard = ({ id, title, imageUrl, category, likesCount, onLikeUpdate }: PromptCardProps) => {
+const PromptCard = ({ id, title, imageUrl, category, likesCount, creatorName, promptText, onLikeUpdate }: PromptCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState(likesCount);
   const [isLiking, setIsLiking] = useState(false);
@@ -69,6 +71,19 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, onLikeUpdate }:
     }
   };
 
+  const handleCopyPrompt = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    try {
+      await navigator.clipboard.writeText(promptText);
+      toast.success("คัดลอกพรอมต์แล้ว!");
+    } catch (error) {
+      console.error("Error copying prompt:", error);
+      toast.error("ไม่สามารถคัดลอกพรอมต์ได้");
+    }
+  };
+
   return (
     <Link to={`/prompt/${id}`}>
       <div className="group relative overflow-hidden rounded-lg bg-card border transition-all hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 hover:border-primary/40">
@@ -101,10 +116,26 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, onLikeUpdate }:
             <span className="text-foreground">{likes}</span>
           </button>
           
-          <div className="absolute bottom-3 left-3 right-3">
+          <div className="absolute bottom-0 left-0 right-0 p-3 space-y-2">
             <h3 className="text-base font-semibold text-white line-clamp-2">
               {title}
             </h3>
+            
+            <div className="flex items-center justify-between gap-2">
+              <button
+                onClick={handleCopyPrompt}
+                className="flex items-center gap-1.5 rounded-md bg-white/95 backdrop-blur-sm px-3 py-1.5 text-sm font-medium transition-all hover:bg-white hover:scale-105"
+              >
+                <Copy className="h-3.5 w-3.5 text-foreground" />
+                <span className="text-foreground">Copy prompt</span>
+              </button>
+              
+              {creatorName && (
+                <span className="text-xs text-white/90 font-medium">
+                  by @{creatorName}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

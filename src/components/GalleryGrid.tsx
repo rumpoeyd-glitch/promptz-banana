@@ -49,6 +49,8 @@ const GalleryGrid = () => {
             imageUrl={prompt.image_url}
             category={prompt.category}
             likesCount={prompt.likes_count}
+            creatorName={prompt.creator_name}
+            promptText={prompt.prompt_text}
             onLikeUpdate={() => refetch()}
           />
         ))}
