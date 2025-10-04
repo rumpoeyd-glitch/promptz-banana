@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Heart, Copy } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+
+// ฟังก์ชันสร้างหรือดึง anonymous user ID
+const getAnonymousUserId = () => {
+  let userId = localStorage.getItem('anonymous_user_id');
+  if (!userId) {
+    userId = `anon_${crypto.randomUUID()}`;
+    localStorage.setItem('anonymous_user_id', userId);
+  }
+  return userId;
+};
 
 interface PromptCardProps {
   id: string;
@@ -19,6 +29,23 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, creatorName, pr
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState(likesCount);
   const [isLiking, setIsLiking] = useState(false);
+  const [userId] = useState(getAnonymousUserId());
+
+  // ตรวจสอบว่าผู้ใช้เคยกดไลค์แล้วหรือยัง
+  useEffect(() => {
+    const checkIfLiked = async () => {
+      const { data } = await supabase
+        .from("likes")
+        .select("id")
+        .eq("prompt_id", id)
+        .eq("user_id", userId)
+        .single();
+      
+      setIsLiked(!!data);
+    };
+    
+    checkIfLiked();
+  }, [id, userId]);
 
   const handleLike = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -28,10 +55,12 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, creatorName, pr
     
     try {
       if (isLiked) {
+        // ลบไลค์ของผู้ใช้คนนี้
         const { error } = await supabase
           .from("likes")
           .delete()
-          .eq("prompt_id", id);
+          .eq("prompt_id", id)
+          .eq("user_id", userId);
 
         if (error) throw error;
 
@@ -45,9 +74,13 @@ const PromptCard = ({ id, title, imageUrl, category, likesCount, creatorName, pr
         setIsLiked(false);
         setLikes(likes - 1);
       } else {
+        // เพิ่มไลค์พร้อม user_id
         const { error } = await supabase
           .from("likes")
-          .insert({ prompt_id: id });
+          .insert({ 
+            prompt_id: id,
+            user_id: userId 
+          });
 
         if (error) throw error;
 
